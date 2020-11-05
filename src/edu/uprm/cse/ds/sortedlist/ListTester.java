@@ -1,4 +1,4 @@
-package edu.uprm.ece.icom4035.list;
+package edu.uprm.cse.ds.sortedlist;
 
 public class ListTester {
 

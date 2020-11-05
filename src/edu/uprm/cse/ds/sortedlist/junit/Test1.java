@@ -1,11 +1,11 @@
-package edu.uprm.ece.icom4035.list.junit;
+package edu.uprm.cse.ds.sortedlist.junit;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.uprm.ece.icom4035.list.SortedCircularDoublyLinkedList;
+import edu.uprm.cse.ds.sortedlist.SortedCircularDoublyLinkedList;
 
 
 public class Test1 {

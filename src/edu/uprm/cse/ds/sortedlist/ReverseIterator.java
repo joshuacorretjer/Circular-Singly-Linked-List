@@ -1,4 +1,4 @@
-package edu.uprm.ece.icom4035.list;
+package edu.uprm.cse.ds.sortedlist;
 
 /**
  * This interface specifies the methods for an iterator that traverses a doubly linked list in the reverse direction.
