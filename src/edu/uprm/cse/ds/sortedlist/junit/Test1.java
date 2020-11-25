@@ -76,9 +76,6 @@ public class Test1 {
 		L.remove(target);
 		assertTrue(L.firstIndex("Jose") < 0);
 		L.add("Jose");
-		for (int i = 0; i < L.size(); i++) {
-			System.out.println(L.get(i));
-		}
 		assertTrue(L.firstIndex("Jose") == 2);
 	}
 
