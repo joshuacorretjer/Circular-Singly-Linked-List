@@ -232,7 +232,7 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     /**
     This method receives an index and it removes the object located in that index from the list.
     It returns true if the object was removed or false if it was not found or was already removed.
-    @param obj Index of the object to be removed from the list.
+    @param index Index of the object to be removed from the list.
     @return A boolean: true if the object was removed or false if it was not found or was already removed.
     */
     public boolean remove(int index) {
