@@ -131,7 +131,7 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
 
     @Override
     /**
-    Receive an object, adds it to the list and returns true if the object was added or false if it wasn't.
+    This method adds the object to the list in order.
      @param obj Object to be added in the list.
      @return A boolean: true if the object was added or false if it wasn't.
      */
