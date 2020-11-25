@@ -294,6 +294,7 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     *This method locates the last object on the list and returns it.
     *@return E: the object located in the last position.
      *
+     *
     */
     public E last() {
         if(this.isEmpty()){
