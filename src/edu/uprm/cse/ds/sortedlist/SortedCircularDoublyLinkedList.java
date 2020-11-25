@@ -130,8 +130,10 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
-    /*
-    Receive an object, adds it to the list and returns true if the object was added and false if it wasn't.
+    /**
+    Receive an object, adds it to the list and returns true if the object was added or false if it wasn't.
+     @param obj Object to be added in the list.
+     @return A boolean: true if the object was added or false if it wasn't.
      */
     public boolean add(E obj) {
         if(obj==null){//if the object is null, it doesn't add it
@@ -176,15 +178,20 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
-    // This method returns the size of the list.
+    /**
+     This method returns the size of the list.
+     @return int: size of the list.
+     */
     public int size() {
         return this.currentSize;
     }
 
     @Override
-    /*
-    This method receives and object and it removes the object given from the list.
+    /**
+    This method receives an object and it removes the object given from the list.
     It returns true if the object was removed and false if it wasn't.
+     @param obj Object to be removed from the list.
+     @return A boolean: true if the object was removed or false if it was not found or was already removed.
      */
     public boolean remove(E obj) {
         if (this.isEmpty()){
@@ -222,9 +229,11 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
-    /*
+    /**
     This method receives an index and it removes the object located in that index from the list.
-    It returns true if the object was removed and false if it wasn't.
+    It returns true if the object was removed or false if it was not found or was already removed.
+    @param obj Index of the object to be removed from the list.
+    @return A boolean: true if the object was removed or false if it was not found or was already removed.
     */
     public boolean remove(int index) {
         if ((index < 0) || (index >= this.size()) ){
@@ -252,9 +261,11 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
-    /*
-    This method receives and object and it removes every saojaod given off the list.
+    /**
+    This method receives an object and it removes every object that is equal to the object given off the list.
     It returns the number of the amount of objects that were removed.
+    @param obj Object to be removed from the list.
+    @return int: the number of the amount of objects that were removed.
     */
     public int removeAll(E obj) {
         int counter = 0;
@@ -265,9 +276,9 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
-    /*
-    This method locates the first object on the list.
-    It returns the object located in the first position.
+    /**
+     This method locates the first object on the list and returns it.
+    @return E: the object located in the first position.
     */
     public E first() {
         if(this.isEmpty()){
@@ -279,8 +290,9 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
-    /*
-    This method locates the last object on the list and returns it.
+    /**
+    *This method locates the last object on the list and returns it.
+    *@return E: the object located in the last position.
     */
     public E last() {
         if(this.isEmpty()){
@@ -291,11 +303,12 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
         }
     }
 
-    /*
-    This method can be used by other methods to locate the node on the given position and return it.
+    /**
+    This method can be used by other methods to locate the node on the given position and returns it.
+    @param index Index of the node to be located.
+    @return Node: the node in the located in the given index.
     */
     private Node<E> findPosition(int index){
-        //It assumes
         int currentPosition = 0;
         Node<E> temp = null;
 
@@ -304,13 +317,14 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
             temp = temp.getNext();
             currentPosition++;
         }
-        // temp points to the node at position index
-        return temp; // return reference to the Node
+        return temp;
     }
 
     @Override
-    /*
-    This method returns the element that is located in the node of the position given.
+    /**
+    This method gets the object located in the index given.
+    @param index Index of the object to be located.
+    @return E: object located in the given index.
     */
     public E get(int index) {
         if ((index < 0) || (index >= this.size())){
@@ -321,8 +335,8 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
-    /*
-    This method returns true if the list is empty or false if is not.
+    /**
+    This method removes every element from the list.
     */
     public void clear() {
         while(!this.isEmpty()){
@@ -331,32 +345,39 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
-    /*
-    This method returns true if the list contains the given object or false if the list false if the list doesn't contain it.
+    /**
+    This method checks if the list has the object given or not.
+    @param obj Object to be located.
+    @return A boolean: true if the list contains the given object or false if the list doesn't contain it.
     */
     public boolean contains(E e) {
         return this.firstIndex(e)>=0;
     }
 
     @Override
-    /*
-    This method returns true if the list is empty or false if is not.
+    /**
+    This method checks if the list is empty or not.
+    @return boolean: true if the list is empty or false if is not.
     */
     public boolean isEmpty() {
         return this.size()==0;
     }
 
     @Override
-    /*
-    This method that iterates from the beginning of the list to the last.
+    /**
+    This method that iterates from the index given to the end of the list in ascending order.
+    @param index Index for where to start the iteration.
+    @return Iterator: the elements from the index to the end.
     */
     public Iterator<E> iterator(int index) {
         return new CircularDoublyLinkedListIterator<>(index);
     }
 
     @Override
-    /*
-    This method returns the first index of the object given.
+    /**
+    This method locates the first index of the object given.
+    @param obj Object to be located.
+    @return index: the first index of the given object.
     */
     public int firstIndex(E e) {
         int counter  = 0;
@@ -369,9 +390,11 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
-    /*
-    This method returns the last index of the object given.
-    */
+    /**
+     This method locates the last index of the object given.
+     @param obj Object to be located.
+     @return index: the last index of the given object.
+     */
     public int lastIndex(E e) {
         int counter  = this.size()-1;
         for (Node<E> temp = this.header.getPrev(); temp != this.header; temp = temp.getPrev(), --counter){
@@ -383,16 +406,29 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
     }
 
     @Override
+    /**
+     This method that iterates from the end of the list to the beginning of the list in descending order.
+     @return Iterator: the elements from the end to the beginning.
+     */
     public ReverseIterator<E> reverseIterator() {
         return new ReverseCircularDoublyLinkedListIterator<>();
     }
 
     @Override
+    /**
+     This method that iterates from the index given to the end of the list in descending order.
+     @param index Index for where to start the iteration.
+     @return Iterator: the elements from the index to the beginning.
+     */
     public ReverseIterator<E> reverseIterator(int index) {
         return new ReverseCircularDoublyLinkedListIterator<>(index);
     }
 
     @Override
+    /**
+     This method that iterates from the beginning of the list to the end of the list in ascending order.
+     @return Iterator: the elements from the beginning to the end.
+     */
     public Iterator<E> iterator() {
         return new CircularDoublyLinkedListIterator<>();
     }
