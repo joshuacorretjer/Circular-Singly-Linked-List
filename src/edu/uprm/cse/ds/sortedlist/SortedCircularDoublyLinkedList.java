@@ -246,7 +246,7 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
                 temp = this.header;
 
             }
-            else { // case 2 - index >= 1 (in the middle)
+            else {
                 temp = this.findPosition(index -1 );
             }
             target = temp.getNext();
