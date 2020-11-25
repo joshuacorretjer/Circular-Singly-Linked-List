@@ -113,6 +113,7 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
 
     private Node<E> header;
     private int currentSize;
+    private Comparator<E> comparator;
 
     public SortedCircularDoublyLinkedList() {
         this.currentSize = 0;
@@ -120,6 +121,12 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
         this.header.setNext(header);
         this.header.setPrev(header);
         this.currentSize = 0;
+        this.comparator = new Comparator<E>() {
+            @Override
+            public int compare(E o1, E o2) {
+                return o1.compareTo(o2);
+            }
+        };
     }
 
     @Override
@@ -143,7 +150,7 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
             }
             else{
                 for (Node temp = this.header.getNext(); temp != this.header; temp = temp.getNext()) {
-                    if(newNode.getElement().compareTo((E)temp.getElement())<0){
+                    if(this.comparator.compare(newNode.getElement(), (E)temp.getElement())<0){
                         newNode.setNext(temp);
                         newNode.setPrev(temp.getPrev());
                         temp.getPrev().setNext(newNode);
@@ -152,6 +159,7 @@ public class SortedCircularDoublyLinkedList<E extends Comparable<E>> implements 
                         return true;
                     }
                     else {
+
                         if (temp.getNext() == this.header) {
                             newNode.setNext(this.header);
                             newNode.setPrev(temp);
